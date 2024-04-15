@@ -7,7 +7,7 @@ export default function Header() {
       <Background />
 
       <H1>
-        Word<span className="first-heading--thin">Analytics</span>
+        Text <span className="first-heading--thin">Analytics</span>
       </H1>
     </header>
   );
