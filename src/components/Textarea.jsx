@@ -23,8 +23,10 @@ export default function Textarea({ setStats }) {
 
     setText(text);
 
+    const words = text.trim().split(/\s+/);
+
     setStats({
-      numberOfWords: text.split(" ")[0] === "" ? 0 : text.split(" ").length,
+      numberOfWords: words[0] === "" ? 0 : words.length,
       numberOfCharacters: text.length,
       instagramCharactersLeft: INSTAGRAM_MAX_CHARACTERS - text.length,
       facebookCharactersLeft: FACEBOOK_MAX_CHARACTERS - text.length,
