@@ -10,8 +10,8 @@ function App() {
   const [stats, setStats] = useState({
     numberOfWords: 0,
     numberOfCharacters: 0,
-    instagramCharactersLeft: 280,
-    facebookCharactersLeft: 2200,
+    twitterCharactersLeft: 280,
+    linkedInCharactersLeft: 3000,
   });
 
   return (
