@@ -1,8 +1,12 @@
 export default function Footer() {
   return (
     <footer className="footer">
-      <small>&copy; Copyright by ByteGrad. All rights reserved.</small>
-      <small>Last checked limits: 17 days ago</small>
+      <small>{getCurrentYear()} Text Analytics</small>
+      <small>React demo app</small>
     </footer>
   );
+}
+
+function getCurrentYear() {
+  return new Date().getFullYear();
 }

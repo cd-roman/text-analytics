@@ -1,4 +1,5 @@
 import { useState } from "react";
+import DOMPurify from "dompurify";
 import Warning from "./Warning";
 import {
   FACEBOOK_MAX_CHARACTERS,
@@ -11,19 +12,19 @@ export default function Textarea({ setStats }) {
 
   const handleChange = (e) => {
     // extract text from event
-    let text = e.target.value;
+    const originalText = e.target.value;
+    const sanitizedText = DOMPurify.sanitize(originalText);
 
-    // example of input validation
-    if (text.includes("<script>")) {
-      setWarning("You can't use <script> in your text.");
-      text = text.replace("<script>", "");
+    // Check if the original text is different from the sanitized text
+    if (originalText !== sanitizedText) {
+      setWarning("Some parts of your input were removed for security reasons");
     } else {
       setWarning("");
     }
 
-    setText(text);
+    setText(sanitizedText);
 
-    const words = text.trim().split(/\s+/);
+    const words = sanitizedText.trim().split(/\s+/);
 
     setStats({
       numberOfWords: words[0] === "" ? 0 : words.length,
