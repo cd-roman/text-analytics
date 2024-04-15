@@ -75,9 +75,10 @@ body {
 }
 
 .warning {
-  position: absolute;
-  bottom: 15px;
-  left: 35px;
+  position: relative;
+  bottom: 16px;
+  left: 0;
+  padding: 0;
   color: red;
   font-size: 14px;
   margin-top: 5px;
